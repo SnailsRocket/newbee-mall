@@ -15,11 +15,13 @@ public class SalaryCaculation {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("please input totalHour and weekHour");
+        System.out.println("please input totalHour 、 weekHour 、baseSalary、overTimeSalary");
         int totalHour = sc.nextInt();
         int weekHour = sc.nextInt();
+        int baseSalary = sc.nextInt();
+        int overTimeSalary = sc.nextInt();
         SalaryCaculation salaryCaculation = new SalaryCaculation();
-        totalSalary = salaryCaculation.caculate_S(totalHour, weekHour);
+        totalSalary = salaryCaculation.caculate_S(baseSalary,overTimeSalary,totalHour, weekHour);
         Set<String> keySet = totalSalary.keySet();
         for (String str : keySet) {
             System.out.println(str + " " + totalSalary.get(str));
@@ -27,10 +29,10 @@ public class SalaryCaculation {
 
     }
 
-    private Map<String, Float> caculate_S(int totalHour, int weekHour) {
-        float usualSalary = (float) (3000 / 174 * 1.5 * (totalHour - weekHour));
-        float weekSalary = 3000 / 174 * 2 * weekHour;
-        float allSalary = 5256 + usualSalary + weekSalary;
+    private Map<String, Float> caculate_S(int baseSalary,int overTimeSalary,int totalHour, int weekHour) {
+        float usualSalary = (float) (overTimeSalary / 174 * 1.5 * (totalHour - weekHour));
+        float weekSalary = overTimeSalary / 174 * 2 * weekHour;
+        float allSalary = baseSalary + usualSalary + weekSalary;
         totalSalary.put("usual_Salary",usualSalary);
         totalSalary.put("week_Salary",weekSalary);
         totalSalary.put("total_Salary",usualSalary+weekSalary);
