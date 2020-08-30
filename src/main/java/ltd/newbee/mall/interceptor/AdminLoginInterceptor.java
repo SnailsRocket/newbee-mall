@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 后台系统身份验证拦截器
+ * 系统管理员使用
  *
  */
 @Component
