@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  * HandlerInterceptor 的详解 https://blog.csdn.net/zhibo_lv/article/details/81699360
  * 登录拦截、权限校验、防重复提交
  * 重写HandlerInterceptor的三个方法，
- * git test
  */
 @Component
 public class NewBeeMallLoginInterceptor implements HandlerInterceptor {
