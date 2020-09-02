@@ -18,6 +18,9 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ *  其实，这三个interceptor都是实现HandlerInterceptor这个类，然后实现不同的拦截方式
+ */
 @Configuration
 public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
 

@@ -22,10 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * newbee-mall购物车数量处理
  *
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ *
  */
 @Component
 public class NewBeeMallCartNumberInterceptor implements HandlerInterceptor {
@@ -41,6 +38,7 @@ public class NewBeeMallCartNumberInterceptor implements HandlerInterceptor {
             NewBeeMallUserVO newBeeMallUserVO = (NewBeeMallUserVO) request.getSession().getAttribute(Constants.MALL_USER_SESSION_KEY);
             //设置购物车中的数量
             newBeeMallUserVO.setShopCartItemCount(newBeeMallShoppingCartItemMapper.selectCountByUserId(newBeeMallUserVO.getUserId()));
+//            将VO对象当做userkey放入session中
             request.getSession().setAttribute(Constants.MALL_USER_SESSION_KEY, newBeeMallUserVO);
         }
         return true;
