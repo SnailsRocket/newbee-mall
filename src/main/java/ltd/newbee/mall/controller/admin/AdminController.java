@@ -21,10 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ *
  */
 @Controller
 @RequestMapping("/admin")
@@ -33,6 +30,7 @@ public class AdminController {
     @Resource
     private AdminUserService adminUserService;
 
+//    如果是get请求直接重新进
     @GetMapping({"/login"})
     public String login() {
         return "admin/login";
@@ -50,6 +48,7 @@ public class AdminController {
         return "admin/index";
     }
 
+//    登录function，上面那个是用来防止黑客恶意请求登录，
     @PostMapping(value = "/login")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("password") String password,
