@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 后台系统身份验证拦截器
  * 系统管理员使用
+ * 设置以 url中 有 admin的访问路径，这个ConfigClass 写具体的实现逻辑
  *
  */
 @Component

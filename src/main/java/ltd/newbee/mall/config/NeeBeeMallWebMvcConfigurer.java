@@ -32,7 +32,7 @@ public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
     private NewBeeMallCartNumberInterceptor newBeeMallCartNumberInterceptor;
 
     public void addInterceptors(InterceptorRegistry registry) {
-        // 添加一个拦截器，拦截以/admin为前缀的url路径（后台登陆拦截）
+        // 添加一个拦截器，拦截以/admin为前缀的url路径（后台登陆拦截），添加需要拦截的路径
         registry.addInterceptor(adminLoginInterceptor)
                 .addPathPatterns("/admin/**")
                 .excludePathPatterns("/admin/login")

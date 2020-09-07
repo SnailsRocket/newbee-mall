@@ -10,6 +10,7 @@ package ltd.newbee.mall.common;
 
 public class NewBeeMallException extends RuntimeException {
 
+//    空参构造
     public NewBeeMallException() {
     }
 
