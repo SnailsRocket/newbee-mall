@@ -30,18 +30,19 @@ public class AdminController {
     @Resource
     private AdminUserService adminUserService;
 
-//    如果是get请求直接重新进
+//    如果是get请求直接重新进,post请求body中需要有username password verifyCode
     @GetMapping({"/login"})
     public String login() {
         return "admin/login";
     }
 
+//    这个应该是上面那个的测试
     @GetMapping({"/test"})
     public String test() {
         return "admin/test";
     }
 
-
+//    TODO
     @GetMapping({"", "/", "/index", "/index.html"})
     public String index(HttpServletRequest request) {
         request.setAttribute("path", "index");
@@ -93,6 +94,8 @@ public class AdminController {
         return "admin/profile";
     }
 
+//    为什么这个需要加上ResponseBody 如果直接写RestController ,其他几个return 就直接给前端返回的是  admin/profile
+//    注意这个返回的是一个对象
     @PostMapping("/profile/password")
     @ResponseBody
     public String passwordUpdate(HttpServletRequest request, @RequestParam("originalPassword") String originalPassword,
@@ -106,12 +109,16 @@ public class AdminController {
             request.getSession().removeAttribute("loginUserId");
             request.getSession().removeAttribute("loginUser");
             request.getSession().removeAttribute("errorMsg");
+//            返回的是SUCCESS 对应的 success 这个枚举类型好好看一下，之前遇见过的都是定义一个ResponseClass
+//            TODO  Enum 跟 class 的区别 优缺点是什么 ，什么时候用Enum 什么时候用class
             return ServiceResultEnum.SUCCESS.getResult();
         } else {
+//            一般需要打印错误日志，然后再返回相应的信息给前端
             return "修改失败";
         }
     }
 
+//    修改用户名
     @PostMapping("/profile/name")
     @ResponseBody
     public String nameUpdate(HttpServletRequest request, @RequestParam("loginUserName") String loginUserName,
@@ -127,6 +134,7 @@ public class AdminController {
         }
     }
 
+//    退出登录 ，将Session中的有关数据移除
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         request.getSession().removeAttribute("loginUserId");

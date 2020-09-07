@@ -9,7 +9,7 @@
 package ltd.newbee.mall.common;
 
 /**
- * 返回状态码
+ * 返回状态码 这里使用的是枚举类型，之前使用的是实体类 优缺点
  * 一般是200  300
  * 也可以是英文
  */
@@ -64,6 +64,7 @@ public enum ServiceResultEnum {
 
     private String result;
 
+//    枚举类的构造方法
     ServiceResultEnum(String result) {
         this.result = result;
     }
