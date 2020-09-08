@@ -12,6 +12,7 @@ import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.AdminUser;
 import ltd.newbee.mall.service.AdminUserService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,8 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/admin")
 public class AdminController {
 
+//    这个Resource 与 Autowired 的区别， 都是将类注入到Controller中
+//    Autowired按byType自动注入，Resource 按 byName自动注入
     @Resource
     private AdminUserService adminUserService;
 
@@ -42,14 +45,14 @@ public class AdminController {
         return "admin/test";
     }
 
-//    TODO
+//    TODO 这个Mapping是干什么用的
     @GetMapping({"", "/", "/index", "/index.html"})
     public String index(HttpServletRequest request) {
         request.setAttribute("path", "index");
         return "admin/index";
     }
 
-//    登录function，上面那个是用来防止黑客恶意请求登录，
+//    登录methods，上面那个是用来防止黑客恶意请求登录，
     @PostMapping(value = "/login")
     public String login(@RequestParam("userName") String userName,
                         @RequestParam("password") String password,
