@@ -5,11 +5,14 @@ import java.util.Map;
 
 /**
  * 分页查询参数
+ * 这个分页一般有五个参数
  *
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * 当前页 5
+ * 每页条数 10
+ * 总条数 100
+ * 计算出 当前页的记录从哪条开始
+ *
+ *
  */
 public class PageQueryUtil extends LinkedHashMap<String, Object> {
     //当前页码
@@ -20,7 +23,7 @@ public class PageQueryUtil extends LinkedHashMap<String, Object> {
     public PageQueryUtil(Map<String, Object> params) {
         this.putAll(params);
 
-        //分页参数
+        //分页参数 五个参数
         this.page = Integer.parseInt(params.get("page").toString());
         this.limit = Integer.parseInt(params.get("limit").toString());
         this.put("start", (page - 1) * limit);

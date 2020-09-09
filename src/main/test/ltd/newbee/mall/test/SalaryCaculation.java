@@ -8,7 +8,8 @@ import java.util.Set;
 /**
  * @Author: Xubo
  * @Date: 2020/8/1 17:55
- *
+ *  12 + 13 + 13  38
+ *  22
  */
 public class SalaryCaculation {
 

@@ -26,10 +26,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ *
  */
 @Controller
 @RequestMapping("/admin")
@@ -46,19 +43,30 @@ public class NewBeeMallCarouselController {
 
     /**
      * 列表
+     * @Param Result 封装的返回结果 class
+     * 使用map接收 传过来的参数 ，这个比直接创建一个VO要好，
+     * 当遇到该需求的时候，前端加了一个字段，或者删除了，这个VO对象就需要修改掉
      */
+//    RequestMapping  method=RequestMethod.GET 这个 可以简写成 GetMapping
     @RequestMapping(value = "/carousels/list", method = RequestMethod.GET)
-    @ResponseBody
+    @ResponseBody  // 或者直接使用 @RestController 这个注解
     public Result list(@RequestParam Map<String, Object> params) {
+//        判断请求参数里面是否有page  和 limit  一个是当前页码 ，一个是 每页条数
         if (StringUtils.isEmpty(params.get("page")) || StringUtils.isEmpty(params.get("limit"))) {
+//            这里的实现方式是写一个类 实现Result的数据封装，而不是在Controller里面，这样写的话，
+//            Controller里面的方法就不用了手动去设置Result，像200,500，这种提前现在generateResult这个类里面写好，
+//            只需要传递一些动态的参数，就可以生成Result这个类，
             return ResultGenerator.genFailResult("参数异常！");
         }
+//        调用PageQueryUtil 这个工具类
         PageQueryUtil pageUtil = new PageQueryUtil(params);
         return ResultGenerator.genSuccessResult(newBeeMallCarouselService.getCarouselPage(pageUtil));
     }
 
     /**
      * 添加
+     * 将RequestMapping 换成 PostMapping
+     * 但是如果一个Controller里面，有的不返回json，而是String，就没有必要用RestController
      */
     @RequestMapping(value = "/carousels/save", method = RequestMethod.POST)
     @ResponseBody

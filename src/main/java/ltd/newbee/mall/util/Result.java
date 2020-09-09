@@ -3,10 +3,8 @@ package ltd.newbee.mall.util;
 import java.io.Serializable;
 
 /**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * 实现序列化接口 Serializable
+ *
  */
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -27,7 +27,7 @@ public class MavenClean {
      * 2. 清理之后的所有空文件夹
      */
     public static void main(String[] args) {
-        final String mavenRepositoryPath = "D:\\maven_repository";
+        final String mavenRepositoryPath = "D:\\soft\\maven_repo";
         File f = new File(mavenRepositoryPath);
 //        静态方法里面调用非静态方法，需要先创建一个mavenclean对象，然后通过mavenclean这个对象调用它的非静态方法
         MavenClean clean = new MavenClean();
