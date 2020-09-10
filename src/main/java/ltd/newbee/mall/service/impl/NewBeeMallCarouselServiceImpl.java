@@ -27,6 +27,7 @@ import java.util.List;
 @Service
 public class NewBeeMallCarouselServiceImpl implements NewBeeMallCarouselService {
 
+//    Resource 是 以 byName，Autowired 是 byType 自动注入
     @Autowired
     private CarouselMapper carouselMapper;
 
@@ -81,6 +82,7 @@ public class NewBeeMallCarouselServiceImpl implements NewBeeMallCarouselService 
         List<NewBeeMallIndexCarouselVO> newBeeMallIndexCarouselVOS = new ArrayList<>(number);
         List<Carousel> carousels = carouselMapper.findCarouselsByNum(number);
         if (!CollectionUtils.isEmpty(carousels)) {
+//            copy list集合里面的对象到另一个集合中 将 POJO 转换成 VO对象
             newBeeMallIndexCarouselVOS = BeanUtil.copyList(carousels, NewBeeMallIndexCarouselVO.class);
         }
         return newBeeMallIndexCarouselVOS;

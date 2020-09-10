@@ -1,0 +1,41 @@
+#### POJO    一个中间对象，可以转换成 VO DTO PO，在阿里巴巴嵩山版中是 DO DTO BO VO的统称，禁止命名 xxxPOJO
+ >  VO      View Object  前端页面显示的对象，用于View 与 Controller 之前的传输  MVC 中 M 与 V 之前传输对象的中介
+ >  DTO     Data Transfer Object 数据传输对象 如PO有100个属性，页面VO有是10个属性，那么DTO也就传输10个，一般用在service层
+ >  DO      Data Object
+ >  PO  Persistent Object 持久化对象，他跟数据表形成一一对映的的映射关系，一般用在Dao层，也就是持久层
+ >  Entity 跟数据库表对映，一个实体一张表
+
+### 技术栈
+html / js / ts
+Angular / Vue / ElementUI
+JQuery  / bootstarp
+Ajax
+
+Java 反射 Socket Collection  JVM
+
+Spring    AOP IOC DI
+                                     
+SpringMVC / Struct2
+
+Mybatis  /  Hibernate  / JPA
+
+Mysql  /  SQLServer  / mongoDB  /  Postgre
+
+SpringSecurity/OAuth2  OSS  cannal  logstash
+
+flink  Hadoop  HBase  Kibana
+
+Tensorflow  CNN  
+
+中间件
+redis  ElasticSearch  RabbitMQ/RocketMQ/Kafka  netty
+
+侧重点
+后端方向 ： CRUD是最基本的，然后就是性能调优(需要用到Redis、ElasticSearch、MQ)，然后就是多线程方向(线程安全、并发量方向)，然后就是数据库SQL语句优化，
+          数据库性能设定，目前基本的CRUD是没有问题的，相关中间件的使用也是没有问题，但是这些中间件的特性，底层都不是很清楚，需要深挖，还有就是多线程方向，
+          这个需要深耕，代码规范，代码的重构也非常的重要，这个都是目前急需学习的。
+          
+送自己一句话： 时刻做好离职的准备，所以基础一定要扎实。
+
+按照流程体系来
+

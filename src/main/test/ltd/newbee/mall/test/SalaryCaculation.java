@@ -10,6 +10,8 @@ import java.util.Set;
  * @Date: 2020/8/1 17:55
  *  12 + 13 + 13  38
  *  22
+ *  7 + 4 + 4
+ *
  */
 public class SalaryCaculation {
 

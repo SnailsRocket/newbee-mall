@@ -16,6 +16,7 @@ import ltd.newbee.mall.service.NewBeeMallIndexConfigService;
 import ltd.newbee.mall.util.PageQueryUtil;
 import ltd.newbee.mall.util.Result;
 import ltd.newbee.mall.util.ResultGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,12 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
+ *  POJO    一个中间对象，可以转换成 VO DTO PO，在阿里巴巴嵩山版中是 DO DTO BO VO的统称，禁止命名 xxxPOJO
+ *  VO      View Object  前端页面显示的对象，用于View 与 Controller 之前的传输  MVC 中 M 与 V 之前传输对象的中介
+ *  DTO     Data Transfer Object 数据传输对象 如PO有100个属性，页面VO有是10个属性，那么DTO也就传输10个，一般用在service层
+ *  DO      Data Object 一般用在Dao层
+ *  PO      Persistent Object 持久化对象，他跟数据表形成一一对映的的映射关系，一般用在Dao层，也就是持久层
+ *  Entity  跟数据库表对映，一个实体一张表
  *
  */
 @Controller
@@ -86,6 +93,8 @@ public class NewBeeMallCarouselController {
 
     /**
      * 修改
+     * 直接在request 的 body里面放一个Carousel对象，但是注意，这个Carousel对象
+     * 不会轻易修改字段，不然就是用 Map接收
      */
     @RequestMapping(value = "/carousels/update", method = RequestMethod.POST)
     @ResponseBody
